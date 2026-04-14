@@ -27,7 +27,7 @@ function CheckIn() {
   }
 
     try {
-      await axios.post("http://localhost:8080/attendance", {
+      await axios.post("https://qr-event-system-6tn8.onrender.com/attendance", {
         ...form ,eventCode
       });
 

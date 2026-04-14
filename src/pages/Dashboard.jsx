@@ -11,12 +11,12 @@ function Dashboard(){
 
     useEffect(()=>{
         axios
-        .get(`http://localhost:8080/event/code/${eventCode}`)
+        .get(`https://qr-event-system-6tn8.onrender.com/event/code/${eventCode}`)
         .then((res)=>setEvent(res.data))
         .catch((err)=>console.error(err));
 
         axios
-      .get(`http://localhost:8080/attendance/${eventCode}`)
+      .get(`https://qr-event-system-6tn8.onrender.com/attendance/${eventCode}`)
       .then((res) => setAttendees(res.data))
       .catch((err) => console.error(err));
 
