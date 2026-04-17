@@ -13,7 +13,7 @@ function Home(){
         </h1>
 
         <p className="text-gray-600 text-lg mb-8">
-          Create events.Generate QR.Manage seamless check-ins.
+          Create Events. Generate QR. Manage Check-ins.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
