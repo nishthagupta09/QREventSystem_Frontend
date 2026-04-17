@@ -46,15 +46,14 @@ function CreateEvent(){
 
   <div className="bg-white/80 backdrop-blur-lg shadow-xl rounded-3xl p-8 w-full max-w-md border border-white/30">
 
-    {/* Title */}
+
     <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
       Create Event
     </h1>
 
-    {/* Form */}
+
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
-      {/* Title */}
       <div>
         <label className="text-sm text-gray-600">Event Title</label>
         <input
@@ -66,7 +65,6 @@ function CreateEvent(){
         />
       </div>
 
-      {/* Location */}
       <div>
         <label className="text-sm text-gray-600">Location</label>
         <input
@@ -78,7 +76,7 @@ function CreateEvent(){
         />
       </div>
 
-      {/* Date */}
+
       <div>
         <label className="text-sm text-gray-600">Date</label>
         <input
@@ -90,7 +88,6 @@ function CreateEvent(){
         />
       </div>
 
-      {/* Time */}
       <div>
         <label className="text-sm text-gray-600">Time</label>
         <input
@@ -102,7 +99,7 @@ function CreateEvent(){
         />
       </div>
 
-      {/* Button */}
+
       <button
         type="submit"
         className="bg-indigo-600 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-indigo-700 hover:scale-[1.02] transition"
@@ -112,7 +109,6 @@ function CreateEvent(){
 
     </form>
 
-    {/* Message */}
     {message && (
       <p className="text-center text-green-600 mt-4 font-medium">
         {message}

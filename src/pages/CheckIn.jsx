@@ -53,7 +53,6 @@ function CheckIn() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-200 via-blue-200 to-purple-300 px-4">
 
-      {/* Event Info */}
       {event ? (
         <div className="bg-white/80 backdrop-blur-lg shadow-lg rounded-2xl p-6 mb-6 w-full max-w-md text-center border border-white/30">
           <h2 className="text-2xl font-semibold text-indigo-600">
@@ -73,7 +72,6 @@ function CheckIn() {
         <p className="mb-6 text-gray-600">Loading event...</p>
       )}
 
-      {/* Form */}
       <form
         onSubmit={handleSubmit}
         className="bg-white/80 backdrop-blur-lg shadow-xl rounded-2xl p-6 w-full max-w-md flex flex-col gap-4 border border-white/30"
