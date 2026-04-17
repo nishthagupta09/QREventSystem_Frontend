@@ -51,7 +51,7 @@ function CheckIn() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-blue-100 to-purple-100 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-200 via-blue-200 to-purple-300 px-4">
 
       {/* Event Info */}
       {event ? (
