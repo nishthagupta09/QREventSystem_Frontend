@@ -12,11 +12,23 @@ function CheckIn() {
     eventCode:""
   });
 
+  const [event, setEvent] = useState(null);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const[message, setMessage]=useState("");
+
+  useEffect(() => {
+    if (eventCode) {
+      axios
+        .get(`https://qr-event-system-6tn8.onrender.com/event/code/${eventCode}`)
+        .then((res) => setEvent(res.data))
+        .catch((err) => console.error(err));
+    }
+  }, [eventCode]);
+
 
   const handleSubmit= async (e) => {
      e.preventDefault();
@@ -39,43 +51,69 @@ function CheckIn() {
   };
 
   return (
-    <div className="bg-blue-200 min-h-screen flex flex-col items-center pt-10 gap-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-blue-100 to-purple-100 px-4">
 
-      <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-700 to-indigo-500 bg-clip-text text-transparent">Check-In</h2>
-      <p className="text-sm text-gray-700">
-          Event Code: {eventCode}
-        </p>
+      {/* Event Info */}
+      {event ? (
+        <div className="bg-white/80 backdrop-blur-lg shadow-lg rounded-2xl p-6 mb-6 w-full max-w-md text-center border border-white/30">
+          <h2 className="text-2xl font-semibold text-indigo-600">
+            {event.title}
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">
+            Code: {event.eventCode}
+          </p>
+
+          <div className="mt-3 text-gray-700 space-y-1">
+            <p>📍 {event.location}</p>
+            <p>📅 {event.date}</p>
+            <p>⏰ {event.time}</p>
+          </div>
+        </div>
+        ) : (
+        <p className="mb-6 text-gray-600">Loading event...</p>
+      )}
 
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 bg-white p-15 rounded-xl shadow-md"
+        className="bg-white/80 backdrop-blur-lg shadow-xl rounded-2xl p-6 w-full max-w-md flex flex-col gap-4 border border-white/30"
       >
+        <h3 className="text-lg font-semibold text-center mb-2">
+          Check In
+        </h3>
+
         <input
           name="name"
-          placeholder="Name"
+          placeholder="Your Name"
+          value={form.name}
           onChange={handleChange}
           required
-          className="border px-15 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 pl-3 text-left placeholder:text-left"
+          className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
         />
 
         <input
           name="email"
-          placeholder="Email"
+          type="email"
+          placeholder="Your Email"
+          value={form.email}
           onChange={handleChange}
           required
-          className="border px-15 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 pl-3 text-left placeholder:text-left"
+          className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
         />
 
         <button
           type="submit"
-          className="bg-amber-200 px-15 py-4 rounded hover:bg-amber-300 disabled:bg-gray-300"
+          className="bg-indigo-600 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-indigo-700 hover:scale-[1.02] transition"
         >
           Check In
         </button>
-      </form>
-       {message && <h4>{message}</h4>}
 
+        {message && (
+          <p className="text-center text-green-600 font-medium">
+            {message}
+          </p>
+        )}
+      </form>
     </div>
   );
 }

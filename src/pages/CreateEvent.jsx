@@ -42,49 +42,85 @@ function CreateEvent(){
 
 
     return(
-        <div className="min-h-screen flex flex-col items-center justify-center bg-blue-200">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-200 via-blue-200 to-purple-300 px-4">
 
-            <h1 className="text-5xl font-bold mt-4 mb-10 px-8 py-4">
-                <span  className="bg-gradient-to-r from-blue-700 to-indigo-500 bg-clip-text text-transparent">
-                    Create Event
-                </span>
-            </h1>
+  <div className="bg-white/80 backdrop-blur-lg shadow-xl rounded-3xl p-8 w-full max-w-md border border-white/30">
 
-            <form onSubmit={handleSubmit} className="bg-gray-200 p-8 shadow-lg rounded-2xl w-[320px] flex flex-col gap-8">
+    {/* Title */}
+    <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+      Create Event
+    </h1>
 
-                <input 
-                className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                name="title" 
-                placeholder="Title" 
-                required
-                onChange={handleChange}/>
+    {/* Form */}
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
-                <input 
-                className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                name="location" 
-                placeholder="Location" 
-                required
-                onChange={handleChange}/>
+      {/* Title */}
+      <div>
+        <label className="text-sm text-gray-600">Event Title</label>
+        <input
+          name="title"
+          placeholder="Event Title"
+          required
+          onChange={handleChange}
+          className="w-full mt-1 p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+        />
+      </div>
 
-                <input 
-                className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                name="date" 
-                placeholder="Date" 
-                required
-                onChange={handleChange}/>
+      {/* Location */}
+      <div>
+        <label className="text-sm text-gray-600">Location</label>
+        <input
+          name="location"
+          placeholder="Location"
+          required
+          onChange={handleChange}
+          className="w-full mt-1 p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+        />
+      </div>
 
-                <input 
-                className="border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                name="time" 
-                placeholder="Time" 
-                required
-                onChange={handleChange}/>
+      {/* Date */}
+      <div>
+        <label className="text-sm text-gray-600">Date</label>
+        <input
+          type="date"
+          name="date"
+          required
+          onChange={handleChange}
+          className="w-full mt-1 p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+        />
+      </div>
 
-                <button type="submit" className="bg-amber-200 text-black p-3 rounded-lg font-semibold hover:bg-amber-300 transition duration-600">CREATE</button>
-            </form>
-            {message && <h4>{message}</h4>}
+      {/* Time */}
+      <div>
+        <label className="text-sm text-gray-600">Time</label>
+        <input
+          type="time"
+          name="time"
+          required
+          onChange={handleChange}
+          className="w-full mt-1 p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+        />
+      </div>
 
-        </div>
+      {/* Button */}
+      <button
+        type="submit"
+        className="bg-indigo-600 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-indigo-700 hover:scale-[1.02] transition"
+      >
+        Create Event
+      </button>
+
+    </form>
+
+    {/* Message */}
+    {message && (
+      <p className="text-center text-green-600 mt-4 font-medium">
+        {message}
+      </p>
+    )}
+
+  </div>
+</div>
     );
 
 }
