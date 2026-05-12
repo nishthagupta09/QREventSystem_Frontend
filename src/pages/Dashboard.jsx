@@ -22,7 +22,7 @@ function Dashboard(){
 
     }, [eventCode]);
 
-    const qrUrl = `https://qr-event-system-backend.onrender.com/check-in?eventCode=${eventCode}`;
+    const qrUrl = `https://qr-event-system-theta.vercel.app/check-in?eventCode=${eventCode}`;
     console.log("EVENT:", event);
     console.log("QR URL:", qrUrl);
 
