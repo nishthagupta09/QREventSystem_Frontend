@@ -11,18 +11,18 @@ function Dashboard(){
 
     useEffect(()=>{
         axios
-        .get(`https://qr-event-system-6tn8.onrender.com/event/code/${eventCode}`)
+        .get(`https://qr-event-system-backend.onrender.com/event/code/${eventCode}`)
         .then((res)=>setEvent(res.data))
         .catch((err)=>console.error(err));
 
         axios
-      .get(`https://qr-event-system-6tn8.onrender.com/attendance/${eventCode}`)
+      .get(`https://qr-event-system-backend.onrender.com/attendance/${eventCode}`)
       .then((res) => setAttendees(res.data))
       .catch((err) => console.error(err));
 
     }, [eventCode]);
 
-    const qrUrl = `https://qr-event-system-theta.vercel.app//check-in?eventCode=${eventCode}`;
+    const qrUrl = `https://qr-event-system-backend.onrender.com/check-in?eventCode=${eventCode}`;
     console.log("EVENT:", event);
     console.log("QR URL:", qrUrl);
 

@@ -23,7 +23,7 @@ function CheckIn() {
   useEffect(() => {
     if (eventCode) {
       axios
-        .get(`https://qr-event-system-6tn8.onrender.com/event/code/${eventCode}`)
+        .get(`https://qr-event-system-backend.onrender.com/event/code/${eventCode}`)
         .then((res) => setEvent(res.data))
         .catch((err) => console.error(err));
     }
@@ -39,7 +39,7 @@ function CheckIn() {
   }
 
     try {
-      await axios.post("https://qr-event-system-6tn8.onrender.com/attendance", {
+      await axios.post("https://qr-event-system-backend.onrender.com/attendance", {
         ...form ,eventCode
       });
 
