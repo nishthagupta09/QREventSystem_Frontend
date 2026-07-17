@@ -1,16 +1,44 @@
-# React + Vite
+# QR Event System — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React frontend for [QR Event System](https://qr-event-system-theta.vercel.app), a lightweight event check-in platform: create an event, share a QR code, and watch attendees check themselves in.
 
-Currently, two official plugins are available:
+Backend repo: [QR_Event_System_Backend](https://github.com/nishthagupta09/QR_Event_System_Backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Create Event** — organizers enter a title, location, date, and time to generate an event
+- **Dashboard** — shows event details, a live QR code linking to check-in, and the real-time attendee list
+- **Check-In** — attendees scan the QR code, submit their name and email, and are checked in (duplicate check-ins are blocked)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Pages / Routes
 
-## Expanding the ESLint configuration
+| Route | Page | Description |
+|---|---|---|
+| `/` | Home | Landing page — create an event or jump to an existing dashboard by code |
+| `/create` | Create Event | Form to create a new event |
+| `/dashboard/:eventCode` | Dashboard | Event details, QR code, and live attendee list |
+| `/check-in` | Check-In | Attendee-facing form, reached by scanning the event QR code |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React + Vite
+- React Router
+- Axios
+- Tailwind CSS
+- `react-qr-code` for QR generation
+- Deployed on Vercel
+
+## Running Locally
+
+\`\`\`bash
+git clone https://github.com/nishthagupta09/QREventSystem_Frontend.git
+cd QREventSystem_Frontend
+npm install
+npm run dev
+\`\`\`
+
+The app runs at \`http://localhost:5173\`.
+
+## Notes
+
+The API base URL is currently hardcoded to the deployed backend (\`https://qr-event-system-backend.onrender.com\`) in each page component. If you're running the backend locally, update these URLs (or move them into a \`.env\` file with \`VITE_API_URL\`) before testing check-in and dashboard flows end-to-end.
