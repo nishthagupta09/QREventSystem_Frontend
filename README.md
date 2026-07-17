@@ -2,7 +2,7 @@
 
 React frontend for [QR Event System](https://qr-event-system-theta.vercel.app), a lightweight event check-in platform: create an event, share a QR code, and watch attendees check themselves in.
 
-Backend repo: [QR_Event_System_Backend](https://github.com/nishthagupta09/QR_Event_System_Backend)
+Backend repo: [QREventSystem_Backend](https://github.com/nishthagupta09/QREventSystem_Backend)
 
 ## Features
 
