@@ -23,7 +23,7 @@ function CreateEvent(){
 
     try {
         const response = await axios.post(
-            "https://qr-event-system-backend.onrender.com/event",{
+            "https://qreventsystem-backend.onrender.com/event",{
                 ...form
             }
         );
