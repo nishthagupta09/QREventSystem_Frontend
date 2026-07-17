@@ -16,7 +16,7 @@ function Dashboard(){
         .catch((err)=>console.error(err));
 
         axios
-      .get(`https://qreventsystem-backend.onrender.com//attendance/${eventCode}`)
+      .get(`https://qreventsystem-backend.onrender.com/attendance/${eventCode}`)
       .then((res) => setAttendees(res.data))
       .catch((err) => console.error(err));
 
